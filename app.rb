@@ -8,6 +8,7 @@ require "net/https"
 @@http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 get '/*' do
+  etag "asndjasndjansd"
   expires 300, :public
   @@http.start do |http|
     req = Net::HTTP::Get.new("/raw/#{params[:splat].first}")
